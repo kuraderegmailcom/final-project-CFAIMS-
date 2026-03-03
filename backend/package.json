@@ -4,10 +4,8 @@
     "description": "Comprehensive Web Platform for Student Freelance and Internship Management",
     "main": "server.js",
     "scripts": {
-        "start": "node backend/server.js",
-        "dev": "nodemon backend/server.js",
-        "client": "cd frontend && npm start",
-        "install-all": "npm install && cd frontend && npm install && cd ../ai-service && pip install -r requirements.txt"
+        "start": "node server.js",
+        "dev": "nodemon server.js"
     },
     "keywords": [
         "freelance",
