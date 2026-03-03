@@ -1,0 +1,10 @@
+node_modules/
+.env
+uploads/
+*.log
+.DS_Store
+frontend/build
+frontend/node_modules
+ai-service/__pycache__
+ai-service/venv
+ai-service/*.pyc

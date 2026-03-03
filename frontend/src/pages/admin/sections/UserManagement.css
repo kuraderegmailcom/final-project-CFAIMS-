@@ -1,0 +1,117 @@
+.user-management {
+    width: 100%;
+}
+
+.users-table-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table thead {
+    background-color: #f9fafb;
+}
+
+.users-table th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+}
+
+.users-table td {
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    border-top: 1px solid #e5e7eb;
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.badge-student {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-recruiter {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-admin {
+    background-color: #e9d5ff;
+    color: #6b21a8;
+}
+
+.badge-active {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.badge-approved {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-approve {
+    background-color: #16a34a;
+    color: white;
+}
+
+.btn-approve:hover {
+    background-color: #15803d;
+}
+
+.btn-deactivate {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-deactivate:hover {
+    background-color: #dc2626;
+}
+
+.btn-activate {
+    background-color: #16a34a;
+    color: white;
+}
+
+.btn-activate:hover {
+    background-color: #15803d;
+}

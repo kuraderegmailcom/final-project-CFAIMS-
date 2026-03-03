@@ -1,0 +1,43 @@
+.overview {
+    width: 100%;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.overview-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card h3 {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.overview-stat {
+    font-size: 1.875rem;
+    font-weight: bold;
+}
+
+.overview-stat.primary {
+    color: #2563eb;
+}
+
+.overview-stat.green {
+    color: #16a34a;
+}
+
+.overview-stat.blue {
+    color: #3b82f6;
+}
+
+.overview-stat.purple {
+    color: #9333ea;
+}
