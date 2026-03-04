@@ -18,9 +18,14 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
 })
     .then(() => console.log('MongoDB connected successfully'))
-    .catch((err) => console.error('MongoDB connection error:', err));
+    .catch((err) => {
+        console.error('MongoDB connection error:', err);
+        console.log('Server will continue running without database connection');
+    });
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
