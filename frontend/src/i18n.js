@@ -21,6 +21,8 @@ const resources = {
             "features.performance.desc": "Monitor your skill progress and achievements",
             "features.secure": "Secure Access",
             "features.secure.desc": "Role-based authentication and data protection",
+            "features.apply": "Apply for Jobs",
+            "features.apply.desc": "Browse and apply for internships and freelance opportunities with ease",
             "how.title": "How It Works",
             "how.step1": "Create Profile",
             "how.step1.desc": "Sign up and build your professional profile",

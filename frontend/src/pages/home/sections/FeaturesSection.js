@@ -10,7 +10,8 @@ const FeaturesSection = () => {
         { title: t('features.task'), desc: t('features.task.desc'), icon: '📋' },
         { title: t('features.multilingual'), desc: t('features.multilingual.desc'), icon: '🌍' },
         { title: t('features.performance'), desc: t('features.performance.desc'), icon: '📊' },
-        { title: t('features.secure'), desc: t('features.secure.desc'), icon: '🔒' }
+        { title: t('features.secure'), desc: t('features.secure.desc'), icon: '🔒' },
+        { title: t('features.apply'), desc: t('features.apply.desc'), icon: '💼' }
     ];
 
     return (

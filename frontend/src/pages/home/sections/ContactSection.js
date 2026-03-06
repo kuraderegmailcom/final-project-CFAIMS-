@@ -20,15 +20,15 @@ const ContactSection = () => {
                     <div className="contact-info">
                         <div className="contact-item">
                             <h3>{t('contact.email')}</h3>
-                            <p>info@studenthub.et</p>
+                            <p>kuradere21@gmail.com</p>
                         </div>
                         <div className="contact-item">
                             <h3>{t('contact.phone')}</h3>
-                            <p>+251 911 234 567</p>
+                            <p>+251 945297077</p>
                         </div>
                         <div className="social-links">
                             <a href="https://facebook.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-                            <a href="https://twitter.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">t</a>
+                        <a href="https://twitter.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">t</a>
                             <a href="https://linkedin.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
                         </div>
                     </div>

@@ -12,6 +12,9 @@ const AboutSection = () => {
                 <p className="about-subtitle">
                     Empowering Ethiopian students to unlock their potential through meaningful opportunities and skill development
                 </p>
+
+
+
                 <div className="about-grid">
                     <div className="about-card">
                         <div className="about-card-icon">🎯</div>

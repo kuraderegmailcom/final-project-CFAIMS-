@@ -1,111 +1,134 @@
 .hero-section {
+    min-height: 600px;
+    background-color: #1e293b;
+    background-image: url('../../../../asset//student8.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px 60px;
     position: relative;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0a0e27;
 }
 
-.hero-background {
+.hero-section::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(255, 107, 107, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(78, 205, 196, 0.12) 0%, transparent 50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 10;
+    z-index: 2;
+    max-width: 900px;
     text-align: center;
-    padding: 0 1rem;
-    max-width: 80rem;
-    margin: 0 auto;
+    color: white;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 48px;
+    color: chartreuse;
     font-weight: 700;
-    color: white;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-}
-
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 4.5rem;
-        letter-spacing: -0.04em;
-    }
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
-    color: #9ca3af;
-    margin-bottom: 3rem;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-@media (min-width: 768px) {
-    .hero-subtitle {
-        font-size: 1.5rem;
-    }
+    font-size: 20px;
+    color: aliceblue;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    font-weight: 300;
 }
 
 .hero-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 20px;
     justify-content: center;
+    align-items: center;
 }
 
-@media (min-width: 640px) {
-    .hero-buttons {
-        flex-direction: row;
-    }
+.hero-btn-primary,
+.hero-btn-secondary {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .hero-btn-primary {
-    background-color: #4ecdc4;
-    color: #0a0e27;
-    padding: 1rem 2rem;
-    border-radius: 2px;
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #4ecdc4;
+    background:  #29bdc1;
+    color: white;
+    border: 2px solid #3b82f6;
 }
 
 .hero-btn-primary:hover {
-    background-color: #3db8af;
+    background:  #29bdc1;
+    border-color: #2563eb;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .hero-btn-secondary {
-    border: 1px solid #e5e7eb;
-    color: #e5e7eb;
-    padding: 1rem 2rem;
-    border-radius: 2px;
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: transparent;
+    background: transparent;
+    color:white;
+    border: 2px solid  white;
 }
 
 .hero-btn-secondary:hover {
-    background-color: #151b35;
-    border-color: #ffffff;
-    color: #ffffff;
+    
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 15px 40px;
+        min-height: 500px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
 }

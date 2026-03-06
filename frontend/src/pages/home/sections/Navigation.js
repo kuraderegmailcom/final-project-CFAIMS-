@@ -14,13 +14,19 @@ const Navigation = () => {
         <nav className="navigation">
             <div className="nav-container">
                 <div className="nav-content">
-                    <div className="nav-logo">StudentHub</div>
+                    <div className="nav-logo">ETHIO STUDENTHUB</div>
                     <div className="nav-links">
-                        <a href="#home">{t('home')}</a>
-                        <a href="#about">{t('hero.about')}</a>
-                        <a href="#contact">{t('hero.contact')}</a>
+                        <a href="#jobs">Jobs</a>
+                        <a href="#internships">Internships</a>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
                     </div>
                     <div className="nav-actions">
+                        <div className="search-container">
+                            <input type="text" placeholder="Search" className="search-input" />
+                            <span className="search-icon">🔍</span>
+                        </div>
                         <select
                             onChange={(e) => changeLanguage(e.target.value)}
                             className="language-selector"

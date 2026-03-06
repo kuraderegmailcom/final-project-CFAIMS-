@@ -1,40 +1,793 @@
-.platform-analytics {
+/* Professional Recruitment Analytics Dashboard */
+.platform-analytics-pro {
     width: 100%;
+    padding: 0;
+    background: #fafbfc;
 }
 
-.section-title {
-    font-size: 1.875rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
+/* Header */
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e1e4e8;
 }
 
-.analytics-grid {
+.header-left {
+    flex: 1;
+}
+
+.analytics-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0a0e27;
+    margin: 0 0 0.375rem 0;
+    letter-spacing: -0.025em;
+}
+
+.analytics-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 400;
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.time-range-selector {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    font-size: 0.8125rem;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.time-range-selector:hover {
+    border-color: #9ca3af;
+}
+
+.time-range-selector:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.export-btn {
+    padding: 0.5rem 1rem;
+    background: #0a0e27;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.export-btn:hover {
+    background: #1a2142;
+    transform: translateY(-1px);
+}
+
+.export-icon {
+    font-size: 1rem;
+}
+
+/* Key Metrics Bar */
+.key-metrics-bar {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 0.75rem;
+    border-left: 2px solid #e5e7eb;
+}
+
+.metric-item:first-child {
+    border-left-color: #6366f1;
+}
+
+.metric-item:nth-child(2) {
+    border-left-color: #8b5cf6;
+}
+
+.metric-item:nth-child(3) {
+    border-left-color: #10b981;
+}
+
+.metric-item:nth-child(4) {
+    border-left-color: #f59e0b;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0a0e27;
+    line-height: 1;
+}
+
+.metric-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.metric-change.positive {
+    color: #059669;
+}
+
+.metric-change.negative {
+    color: #dc2626;
+}
+
+/* Analytics Grid */
+.analytics-grid-pro {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.25rem;
 }
 
 .analytics-card {
-    background-color: white;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
     padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.analytics-card h3 {
+.funnel-card {
+    grid-column: span 7;
+}
+
+.task-health-card {
+    grid-column: span 5;
+}
+
+.skill-radar-card {
+    grid-column: span 6;
+}
+
+.growth-card {
+    grid-column: span 6;
+}
+
+.distribution-card {
+    grid-column: span 12;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.card-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #0a0e27;
+    margin: 0 0 0.25rem 0;
+}
+
+.card-subtitle {
+    font-size: 0.8125rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* 1. Recruitment Funnel - Vertical Funnel Chart */
+.funnel-stats {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.stat-badge {
+    font-size: 0.8125rem;
     color: #6b7280;
-    margin-bottom: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    background: #f3f4f6;
+    border-radius: 6px;
+}
+
+.stat-badge strong {
+    color: #0a0e27;
+    font-size: 1rem;
+}
+
+.funnel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.funnel-stage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.funnel-stage-bar {
+    height: 48px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.funnel-stage-bar:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.funnel-stage-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.stage-name {
     font-size: 0.875rem;
+    color: white;
+    font-weight: 500;
 }
 
-.stat-number {
-    font-size: 1.875rem;
-    font-weight: bold;
+.stage-count {
+    font-size: 1.125rem;
+    color: white;
+    font-weight: 700;
 }
 
-.stat-number.primary { color: #2563eb; }
-.stat-number.green { color: #16a34a; }
-.stat-number.blue { color: #3b82f6; }
-.stat-number.purple { color: #9333ea; }
-.stat-number.orange { color: #ea580c; }
-.stat-number.red { color: #dc2626; }
+.funnel-stage-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    min-width: 100px;
+}
+
+.stage-percentage {
+    font-size: 0.875rem;
+    color: #374151;
+    font-weight: 600;
+}
+
+.stage-dropoff {
+    font-size: 0.75rem;
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.funnel-insights {
+    padding: 1rem;
+    background: #fef3c7;
+    border-left: 3px solid #f59e0b;
+    border-radius: 6px;
+}
+
+.insight-box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.insight-icon {
+    font-size: 1.25rem;
+}
+
+.insight-box strong {
+    display: block;
+    font-size: 0.875rem;
+    color: #92400e;
+    margin-bottom: 0.25rem;
+}
+
+.insight-box p {
+    font-size: 0.8125rem;
+    color: #78350f;
+    margin: 0;
+}
+
+/* 2. Task Health - Semi-Doughnut Gauge */
+.gauge-container {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 1.5rem;
+}
+
+.semi-doughnut {
+    width: 100%;
+    height: auto;
+}
+
+.gauge-center {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gauge-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a0e27;
+    line-height: 1;
+}
+
+.gauge-label {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.task-breakdown {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.task-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border-radius: 6px;
+}
+
+.stat-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.task-stat.completed .stat-dot {
+    background: #10b981;
+}
+
+.task-stat.review .stat-dot {
+    background: #f59e0b;
+}
+
+.task-stat.progress .stat-dot {
+    background: #3b82f6;
+}
+
+.task-stat.overdue .stat-dot {
+    background: #ef4444;
+}
+
+.stat-name {
+    flex: 1;
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+.stat-count {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0a0e27;
+}
+
+.task-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 6px;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem;
+}
+
+.metric-row span {
+    color: #6b7280;
+}
+
+.metric-row strong {
+    color: #0a0e27;
+    font-weight: 600;
+}
+
+/* 3. Skill Radar Chart */
+.radar-legend {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+.legend-line {
+    width: 20px;
+    height: 2px;
+}
+
+.legend-item.demand .legend-line {
+    background: #ef4444;
+}
+
+.legend-item.supply .legend-line {
+    background: #3b82f6;
+}
+
+.radar-chart-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+}
+
+.radar-chart {
+    width: 100%;
+    height: auto;
+}
+
+.skill-treemap {
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.treemap-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 1rem 0;
+}
+
+.treemap-grid {
+    display: flex;
+    gap: 0.5rem;
+    height: 100px;
+}
+
+.treemap-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 6px;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.treemap-cell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cell-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.cell-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.cell-stipend {
+    font-size: 0.6875rem;
+    opacity: 0.9;
+}
+
+/* 4. Platform Growth - Area Chart */
+.growth-legend {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.legend-item.postings .legend-dot {
+    background: #8b5cf6;
+}
+
+.legend-item.applications .legend-dot {
+    background: #3b82f6;
+}
+
+.legend-item.matches .legend-dot {
+    background: #10b981;
+}
+
+.area-chart-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 0.75rem;
+    border-right: 1px solid #e5e7eb;
+}
+
+.y-tick {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-align: right;
+}
+
+.area-chart {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.area-svg {
+    width: 100%;
+    height: 200px;
+}
+
+.chart-x-axis {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.x-tick {
+    font-size: 0.6875rem;
+    color: #9ca3af;
+}
+
+/* 5. Opportunity Distribution */
+.distribution-overview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dist-item {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dist-item.internship {
+    border-left: 3px solid #6366f1;
+}
+
+.dist-item.freelance {
+    border-left: 3px solid #10b981;
+}
+
+.dist-icon {
+    font-size: 2rem;
+}
+
+.dist-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.dist-label {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.dist-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0e27;
+    line-height: 1;
+}
+
+.dist-percentage {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.dist-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+.category-comparison {
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.comparison-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 1rem 0;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cat-name {
+    font-size: 0.875rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.cat-bars {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cat-bar-group {
+    flex: 1;
+    background: #e5e7eb;
+    height: 32px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cat-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    transition: width 0.5s ease;
+}
+
+.internship-bar {
+    background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.freelance-bar {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.bar-label {
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .funnel-card {
+        grid-column: span 12;
+    }
+
+    .task-health-card {
+        grid-column: span 12;
+    }
+
+    .skill-radar-card,
+    .growth-card {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 1024px) {
+    .analytics-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-controls {
+        width: 100%;
+    }
+
+    .key-metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-radar-card,
+    .growth-card {
+        grid-column: span 12;
+    }
+
+    .distribution-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .key-metrics-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-grid-pro {
+        grid-template-columns: 1fr;
+    }
+
+    .funnel-card,
+    .task-health-card,
+    .skill-radar-card,
+    .growth-card,
+    .distribution-card {
+        grid-column: span 1;
+    }
+
+    .task-breakdown {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
