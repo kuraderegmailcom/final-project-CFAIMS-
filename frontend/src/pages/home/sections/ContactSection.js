@@ -12,7 +12,7 @@ const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-white">
+        <section id="contact" className="py-20 bg-white to-blue">
             <div className="max-w-6xl px-6 mx-auto">
                 <h2 className="mb-16 text-4xl font-bold text-center text-gray-900 md:text-5xl">
                     {t('contact.title')}

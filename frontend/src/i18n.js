@@ -49,6 +49,10 @@ const resources = {
             "contact.name": "Your Name",
             "contact.message": "Your Message",
             "contact.send": "Send Message",
+            "team.title": "Join Our Team",
+            "team.subtitle": "Meet the talented individuals behind our success",
+            "team.cta": "Want to be part of our amazing team?",
+            "team.contact": "Get In Touch",
             "footer.about": "About",
             "footer.privacy": "Privacy Policy",
             "footer.terms": "Terms of Service"
@@ -101,6 +105,10 @@ const resources = {
             "contact.name": "ስምዎ",
             "contact.message": "መልእክትዎ",
             "contact.send": "መልእክት ላክ",
+            "team.title": "ቡድናችንን ይቀላቀሉ",
+            "team.subtitle": "ስኬታችንን ከኋላ ያሉትን ተሰጥኦ ያላቸውን ግለሰቦች ያግኙ",
+            "team.cta": "የድንቅ ቡድናችን አካል መሆን ይፈልጋሉ?",
+            "team.contact": "ያግኙን",
             "footer.about": "ስለ እኛ",
             "footer.privacy": "የግላዊነት ፖሊሲ",
             "footer.terms": "የአገልግሎት ውል"
@@ -153,6 +161,10 @@ const resources = {
             "contact.name": "Maqaa Keessan",
             "contact.message": "Ergaa Keessan",
             "contact.send": "Ergaa Erguu",
+            "team.title": "Garee Keenya Waliin Makamaa",
+            "team.subtitle": "Namoota dandeettii qaban milkaa'ina keenya duuba jiran waliin wal argaa",
+            "team.cta": "Garee keenya ajaa'ibaa keessaa ta'uu barbaadduu?",
+            "team.contact": "Nu Quunnamaa",
             "footer.about": "Waa'ee",
             "footer.privacy": "Imaammata Dhuunfaa",
             "footer.terms": "Waliigaltee Tajaajilaa"
