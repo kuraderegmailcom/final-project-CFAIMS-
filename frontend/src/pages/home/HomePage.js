@@ -7,11 +7,10 @@ import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import TeamSection from './sections/TeamSection';
 import Footer from './sections/Footer';
-import './HomePage.css';
 
 const HomePage = () => {
     return (
-        <div className="homepage">
+        <div className="min-h-screen bg-white">
             <Navigation />
             <HeroSection />
             <FeaturesSection />
