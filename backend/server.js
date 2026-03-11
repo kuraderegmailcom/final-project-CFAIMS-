@@ -26,6 +26,7 @@ app.use('/api/opportunities', require('./routes/opportunities'));
 app.use('/api/applications', require('./routes/applications'));
 app.use('/api/tasks', require('./routes/tasks'));
 app.use('/api/messages', require('./routes/messages'));
+app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/ai', require('./routes/ai'));
 
 // Health check

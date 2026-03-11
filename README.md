@@ -59,26 +59,44 @@ git clone <repository-url>
 cd StudentHub
 ```
 
-2. **Install all dependencies**
-```bash
-npm run install-all
-```
+2. **Setup MongoDB** (Required!)
+   
+   See detailed instructions in [backend/DATABASE_SETUP.md](backend/DATABASE_SETUP.md)
+   
+   Quick start:
+   - Windows: Run `start-mongodb.bat` or `net start MongoDB` (as Administrator)
+   - Mac: `brew services start mongodb-community`
+   - Linux: `sudo systemctl start mongod`
+   
+   Verify MongoDB is running:
+   ```bash
+   cd backend
+   npm run check-db
+   ```
 
-Or install manually:
-```bash
-# Root dependencies
-npm install
+3. **Install all dependencies**
 
-# Frontend dependencies
-cd frontend
-npm install
+   Windows users can use the automated setup:
+   ```bash
+   setup.bat
+   ```
+   
+   Or install manually:
+   ```bash
+   # Backend dependencies
+   cd backend
+   npm install
+   
+   # Frontend dependencies
+   cd ../frontend
+   npm install
+   
+   # AI service dependencies
+   cd ../ai-service
+   pip install -r requirements.txt
+   ```
 
-# AI service dependencies
-cd ../ai-service
-pip install -r requirements.txt
-```
-
-3. **Configure environment variables**
+4. **Configure environment variables**
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
@@ -86,17 +104,24 @@ cp .env.example .env
 
 ### Running the Application
 
-**Option 1: Run all services separately**
+**Option 1: Windows Quick Start**
+```bash
+# Start all services at once
+start-all.bat
+```
+
+**Option 2: Run services separately**
 
 Terminal 1 - Backend:
 ```bash
-npm run dev
+cd backend
+npm start
 ```
 
 Terminal 2 - Frontend:
 ```bash
 cd frontend
-npm run dev
+npm start
 ```
 
 Terminal 3 - AI Service:
@@ -105,20 +130,53 @@ cd ai-service
 python main.py
 ```
 
-**Option 2: Use the provided scripts**
-```bash
-# Start backend
-npm start
+## 🔧 Troubleshooting
 
-# Start frontend
-npm run client
-```
+### Database Connection Issues
+
+If you see "MongoDB connection error", follow these steps:
+
+1. **Check if MongoDB is running:**
+   ```bash
+   cd backend
+   npm run check-db
+   ```
+
+2. **Start MongoDB:**
+   - Windows: `start-mongodb.bat` or `net start MongoDB` (as Administrator)
+   - Mac: `brew services start mongodb-community`
+   - Linux: `sudo systemctl start mongod`
+
+3. **Verify connection string in `.env`:**
+   ```
+   MONGODB_URI=mongodb://localhost:27017/student-freelance-platform
+   ```
+
+4. **Check MongoDB installation:**
+   - Download from: https://www.mongodb.com/try/download/community
+   - Ensure "Install MongoDB as a Service" is checked during installation
+
+For detailed troubleshooting, see [backend/DATABASE_SETUP.md](backend/DATABASE_SETUP.md)
 
 ## 🌐 Access Points
 
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:5000
 - **AI Service:** http://localhost:8000
+
+## 🎯 Key Features
+
+### Opportunity Discovery
+- **Freelance Opportunities:** Browse and filter freelance projects posted by companies
+- **Internship Opportunities:** Find internships with duration, stipend, and skill requirements
+- **Advanced Filtering:** Filter by skills, location, stipend range, duration, and more
+- **Smart Search:** AI-powered matching based on student profiles and skills
+
+### Navigation Features
+- Dedicated pages for Freelance (`/freelance`) and Internships (`/internships`)
+- Real-time filtering and sorting
+- Detailed opportunity view with company information
+- Mobile-responsive design
 
 ## 👥 User Roles
 
@@ -171,6 +229,13 @@ npm run client
 ### Authentication
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - Login user
+
+### Opportunities
+- `GET /api/opportunities` - Get all opportunities (supports filtering by type, skill, location, etc.)
+- `GET /api/opportunities/:id` - Get single opportunity
+- `POST /api/opportunities` - Create opportunity (recruiter only)
+- `PUT /api/opportunities/:id` - Update opportunity
+- `DELETE /api/opportunities/:id` - Delete opportunity
 
 ### Students
 - `GET /api/students/profile` - Get student profile

@@ -7,11 +7,19 @@ const Recruiter = require('../models/Recruiter');
 // Get all opportunities (public + filtered + sorted)
 router.get('/', async (req, res) => {
     try {
-        const { skill, duration, location, type, minStipend, maxStipend, sort } = req.query;
+        const { skill, duration, location, type, minStipend, maxStipend, sort, limit } = req.query;
 
         let query = { status: 'active' };
 
-        if (skill) query.requiredSkills = { $in: [new RegExp(skill, 'i')] };
+        if (skill) {
+            // Split by comma and trim, then create regex for each skill
+            const skillArray = skill.split(',').map(s => s.trim()).filter(s => s);
+            if (skillArray.length > 0) {
+                query.requiredSkills = {
+                    $in: skillArray.map(s => new RegExp(s, 'i'))
+                };
+            }
+        }
         if (duration) query.duration = duration;
         if (location) query.location = new RegExp(location, 'i');
         if (type) query.type = type;
@@ -22,13 +30,21 @@ router.get('/', async (req, res) => {
         }
 
         let sortOption = '-createdAt'; // Default: newest first
-        if (sort === 'stipend') sortOption = '-stipend'; // Highest stipend
+        if (sort === 'newest') sortOption = '-createdAt';
+        else if (sort === 'stipend') sortOption = '-stipend'; // Highest stipend
         else if (sort === 'oldest') sortOption = 'createdAt';
         else if (sort === 'match') sortOption = '-aiMatchScore'; // Best match (if available)
 
-        const opportunities = await Opportunity.find(query)
+        let opportunitiesQuery = Opportunity.find(query)
             .populate('recruiterId', 'companyName location logo')
             .sort(sortOption);
+
+        // Apply limit if specified
+        if (limit) {
+            opportunitiesQuery = opportunitiesQuery.limit(Number(limit));
+        }
+
+        const opportunities = await opportunitiesQuery;
 
         res.json({ success: true, data: opportunities, count: opportunities.length });
     } catch (error) {
