@@ -88,14 +88,14 @@ const Navigation = () => {
                             <a href="#contact" className="text-sm font-medium text-teal-100 transition-colors hover:text-teal-400">Contact</a>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="relative">
+                            {/* <div className="relative">
                                 <input
                                     type="text"
                                     placeholder="Search"
                                     className="px-4 py-2 pr-10 text-sm text-white placeholder-teal-300 transition-all border rounded-md bg-teal-900/30 border-teal-700/30 w-52 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
                                 />
                                 <span className="absolute text-sm text-teal-300 -translate-y-1/2 pointer-events-none right-3 top-1/2">🔍</span>
-                            </div>
+                            </div> */}
                             <select
                                 onChange={(e) => changeLanguage(e.target.value)}
                                 className="px-3 py-2 text-sm text-white transition-colors border rounded-md cursor-pointer bg-teal-900/30 border-teal-700/30 focus:outline-none focus:border-teal-500"
