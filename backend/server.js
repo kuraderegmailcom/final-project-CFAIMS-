@@ -14,9 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Connect to Database
-connectDB();
-
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/students', require('./routes/students'));
@@ -39,8 +36,18 @@ app.get('/health', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`\n🚀 Server running on port ${PORT}`);
-    console.log(`📍 Health check: http://localhost:${PORT}/health\n`);
-});
+
+// Connect to Database and start server
+(async () => {
+    try {
+        await connectDB();
+        app.listen(PORT, () => {
+            console.log(`\n🚀 Server running on port ${PORT}`);
+            console.log(`📍 Health check: http://localhost:${PORT}/health\n`);
+        });
+    } catch (error) {
+        console.error('Failed to start server:', error.message);
+        process.exit(1);
+    }
+})();
 

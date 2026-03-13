@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
             const skillArray = skill.split(',').map(s => s.trim()).filter(s => s);
             if (skillArray.length > 0) {
                 query.requiredSkills = {
-                    $in: skillArray.map(s => new RegExp(s, 'i'))
+                    $in: skillArray
                 };
             }
         }
