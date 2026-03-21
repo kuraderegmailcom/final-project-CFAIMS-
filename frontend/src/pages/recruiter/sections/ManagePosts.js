@@ -6,7 +6,6 @@ const ManagePosts = ({ opportunities, fetchOpportunities, fetchApplications }) =
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [formData, setFormData] = useState({
         title: '',
-        type: 'internship',
         description: '',
         requiredSkills: '',
         duration: '',
@@ -29,7 +28,6 @@ const ManagePosts = ({ opportunities, fetchOpportunities, fetchApplications }) =
             fetchOpportunities();
             setFormData({
                 title: '',
-                type: 'internship',
                 description: '',
                 requiredSkills: '',
                 duration: '',
@@ -96,16 +94,7 @@ const ManagePosts = ({ opportunities, fetchOpportunities, fetchApplications }) =
                                     required
                                 />
                             </div>
-                            <div className="form-field">
-                                <label>Type</label>
-                                <select
-                                    value={formData.type}
-                                    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                                >
-                                    <option value="internship">Internship</option>
-                                    <option value="freelance">Freelance</option>
-                                </select>
-                            </div>
+
                             <div className="form-field">
                                 <label>Description</label>
                                 <textarea

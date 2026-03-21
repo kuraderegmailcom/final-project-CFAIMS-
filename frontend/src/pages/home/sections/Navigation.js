@@ -1,46 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import FreelanceModal from '../../../components/FreelanceModal';
-import InternshipModal from '../../../components/InternshipModal';
 
 const Navigation = () => {
     const { t, i18n } = useTranslation();
-    const [showFreelanceModal, setShowFreelanceModal] = useState(false);
-    const [showInternshipModal, setShowInternshipModal] = useState(false);
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
     };
-
-    const handleFreelanceClick = () => {
-        setShowFreelanceModal(true);
-        setShowInternshipModal(false);
-    };
-
-    const handleInternshipClick = () => {
-        setShowInternshipModal(true);
-        setShowFreelanceModal(false);
-    };
-
-    const closeModals = () => {
-        setShowFreelanceModal(false);
-        setShowInternshipModal(false);
-    };
-
-    // Close modals when pressing Escape key
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                closeModals();
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
 
     return (
         <>
@@ -51,38 +17,6 @@ const Navigation = () => {
                             ETHIO STUDENTHUB
                         </div>
                         <div className="flex items-center gap-6">
-                            {/* Freelance Button */}
-                            <button
-                                onClick={handleFreelanceClick}
-                                className="flex items-center gap-1 text-sm font-medium text-teal-100 transition-colors hover:text-teal-400"
-                            >
-                                Freelance
-                                <svg
-                                    className="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
-                            {/* Internships Button */}
-                            <button
-                                onClick={handleInternshipClick}
-                                className="flex items-center gap-1 text-sm font-medium text-teal-100 transition-colors hover:text-teal-400"
-                            >
-                                Internships
-                                <svg
-                                    className="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
                             <a href="#home" className="text-sm font-medium text-teal-100 transition-colors hover:text-teal-400">Home</a>
                             <a href="#about" className="text-sm font-medium text-teal-100 transition-colors hover:text-teal-400">About</a>
                             <a href="#contact" className="text-sm font-medium text-teal-100 transition-colors hover:text-teal-400">Contact</a>
@@ -121,15 +55,6 @@ const Navigation = () => {
                 </div>
             </nav>
 
-            {/* Modals */}
-            <FreelanceModal
-                isOpen={showFreelanceModal}
-                onClose={closeModals}
-            />
-            <InternshipModal
-                isOpen={showInternshipModal}
-                onClose={closeModals}
-            />
         </>
     );
 };

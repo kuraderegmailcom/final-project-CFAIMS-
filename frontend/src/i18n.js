@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     en: {
         translation: {
-            "hero.title": "Empowering Students Through Freelance & Internship Opportunities",
+            "hero.title": "Empowering Students Through Career Opportunities",
             "hero.subtitle": "Connect with opportunities. Build your future. Grow your skills.",
             "hero.getStarted": "Get Started",
             "hero.learnMore": "Learn More",
@@ -17,7 +17,7 @@ const resources = {
             "features.ai": "AI Resume Matching",
             "features.ai.desc": "Smart matching between student skills and opportunities",
             "features.task": "Task Management",
-            "features.task.desc": "Track and manage your internship tasks efficiently",
+            "features.task.desc": "Track and manage your work tasks efficiently",
             "features.multilingual": "Multilingual Support",
             "features.multilingual.desc": "Available in English, Amharic, and Afan Oromo",
             "features.performance": "Performance Tracking",
@@ -25,7 +25,7 @@ const resources = {
             "features.secure": "Secure Access",
             "features.secure.desc": "Role-based authentication and data protection",
             "features.apply": "Apply for Jobs",
-            "features.apply.desc": "Browse and apply for internships and freelance opportunities with ease",
+            "features.apply.desc": "Browse and apply for opportunities with ease",
             "how.title": "How It Works",
             "how.step1": "Create Profile",
             "how.step1.desc": "Sign up and build your professional profile",
@@ -37,7 +37,7 @@ const resources = {
             "how.step4.desc": "Complete tasks and develop your skills",
             "about.title": "About Us",
             "about.mission": "Our Mission",
-            "about.mission.text": "To empower Ethiopian students by connecting them with meaningful freelance and internship opportunities that enhance their skills and career prospects.",
+            "about.mission.text": "To empower Ethiopian students by connecting them with meaningful career opportunities that enhance their skills and career prospects.",
             "about.vision": "Our Vision",
             "about.vision.text": "To become the leading platform for student professional development in Ethiopia, bridging the gap between education and industry.",
             "about.impact": "Our Impact",

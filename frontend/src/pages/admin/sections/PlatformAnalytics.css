@@ -612,119 +612,6 @@
     gap: 1rem;
 }
 
-.dist-item.internship {
-    border-left: 3px solid #6366f1;
-}
-
-.dist-item.freelance {
-    border-left: 3px solid #10b981;
-}
-
-.dist-icon {
-    font-size: 2rem;
-}
-
-.dist-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-}
-
-.dist-label {
-    font-size: 0.8125rem;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-}
-
-.dist-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0a0e27;
-    line-height: 1;
-}
-
-.dist-percentage {
-    font-size: 0.875rem;
-    color: #6b7280;
-    font-weight: 600;
-}
-
-.dist-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid #e5e7eb;
-    font-size: 0.8125rem;
-    color: #6b7280;
-}
-
-.category-comparison {
-    padding: 1.5rem;
-    background: #f9fafb;
-    border-radius: 8px;
-}
-
-.comparison-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #374151;
-    margin: 0 0 1rem 0;
-}
-
-.comparison-row {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.cat-name {
-    font-size: 0.875rem;
-    color: #374151;
-    font-weight: 500;
-}
-
-.cat-bars {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.cat-bar-group {
-    flex: 1;
-    background: #e5e7eb;
-    height: 32px;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
-
-.cat-bar {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 0.5rem;
-    transition: width 0.5s ease;
-}
-
-.internship-bar {
-    background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
-}
-
-.freelance-bar {
-    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
-}
-
-.bar-label {
-    font-size: 0.75rem;
-    color: white;
-    font-weight: 600;
-}
-
 /* Responsive Design */
 @media (max-width: 1400px) {
     .funnel-card {
@@ -759,10 +646,6 @@
     .growth-card {
         grid-column: span 12;
     }
-
-    .distribution-overview {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -777,17 +660,11 @@
     .funnel-card,
     .task-health-card,
     .skill-radar-card,
-    .growth-card,
-    .distribution-card {
+    .growth-card {
         grid-column: span 1;
     }
 
     .task-breakdown {
         grid-template-columns: 1fr;
-    }
-
-    .comparison-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
     }
 }

@@ -9,8 +9,6 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
-import FreelanceOpportunities from './pages/FreelanceOpportunities';
-import InternshipOpportunities from './pages/InternshipOpportunities';
 import OpportunityDetail from './pages/OpportunityDetail';
 import StudentDashboard from './pages/student/StudentDashboard';
 import RecruiterDashboard from './pages/recruiter/RecruiterDashboard';
@@ -29,8 +27,6 @@ function App() {
                     <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/terms-of-service" element={<TermsOfService />} />
-                    <Route path="/freelance" element={<FreelanceOpportunities />} />
-                    <Route path="/internships" element={<InternshipOpportunities />} />
                     <Route path="/opportunity/:id" element={<OpportunityDetail />} />
 
                     <Route path="/student/*" element={

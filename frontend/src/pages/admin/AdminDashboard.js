@@ -59,7 +59,7 @@ const AdminDashboard = () => {
         <div className="admin-dashboard">
             <div className="admin-sidebar">
                 <div className="admin-sidebar-header">
-                    <h2>StudentHub</h2>
+                    <h2>ETHIO STUDENTHUB</h2>
                     <p>Admin Dashboard</p>
                 </div>
                 <nav className="admin-nav">

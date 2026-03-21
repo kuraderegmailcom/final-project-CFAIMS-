@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './PlatformAnalytics.css';
 
 const PlatformAnalytics = ({ analytics }) => {
@@ -7,7 +7,6 @@ const PlatformAnalytics = ({ analytics }) => {
     const [taskHealth, setTaskHealth] = useState({});
     const [skillDemandSupply, setSkillDemandSupply] = useState({});
     const [platformGrowth, setPlatformGrowth] = useState([]);
-    const [opportunityDistribution, setOpportunityDistribution] = useState({});
 
     useEffect(() => {
         generateAnalyticsData();
@@ -72,28 +71,6 @@ const PlatformAnalytics = ({ analytics }) => {
             };
         });
         setPlatformGrowth(growth);
-
-        // 5. Internship vs Freelance Distribution
-        setOpportunityDistribution({
-            internships: {
-                count: 342,
-                percentage: 58.4,
-                avgStipend: 8500,
-                avgDuration: 3.5
-            },
-            freelance: {
-                count: 244,
-                percentage: 41.6,
-                avgPayment: 12000,
-                avgDuration: 1.2
-            },
-            byCategory: [
-                { category: 'Technology', internship: 145, freelance: 98 },
-                { category: 'Design', internship: 87, freelance: 76 },
-                { category: 'Marketing', internship: 65, freelance: 42 },
-                { category: 'Content', internship: 45, freelance: 28 }
-            ]
-        });
     };
 
     const getMaxValue = (arr) => Math.max(...arr);
@@ -151,7 +128,7 @@ const PlatformAnalytics = ({ analytics }) => {
             {/* Main Analytics Grid */}
             <div className="analytics-grid-pro">
 
-                {/* 1. Recruitment Funnel - Vertical Funnel Chart */}
+                {/* 1. Recruitment Funnel */}
                 <div className="analytics-card funnel-card">
                     <div className="card-header">
                         <div>
@@ -194,7 +171,7 @@ const PlatformAnalytics = ({ analytics }) => {
                     </div>
                 </div>
 
-                {/* 2. Task Completion & Health - Semi-Doughnut Gauge */}
+                {/* 2. Task Completion & Health */}
                 <div className="analytics-card task-health-card">
                     <div className="card-header">
                         <div>
@@ -210,13 +187,7 @@ const PlatformAnalytics = ({ analytics }) => {
                                     <stop offset="100%" stopColor="#059669" />
                                 </linearGradient>
                             </defs>
-                            <path
-                                d="M 30 100 A 70 70 0 0 1 170 100"
-                                fill="none"
-                                stroke="#e5e7eb"
-                                strokeWidth="20"
-                                strokeLinecap="round"
-                            />
+                            <path d="M 30 100 A 70 70 0 0 1 170 100" fill="none" stroke="#e5e7eb" strokeWidth="20" strokeLinecap="round" />
                             <path
                                 d="M 30 100 A 70 70 0 0 1 170 100"
                                 fill="none"
@@ -232,40 +203,18 @@ const PlatformAnalytics = ({ analytics }) => {
                         </div>
                     </div>
                     <div className="task-breakdown">
-                        <div className="task-stat completed">
-                            <div className="stat-dot"></div>
-                            <span className="stat-name">Completed</span>
-                            <span className="stat-count">{taskHealth.completed || 0}</span>
-                        </div>
-                        <div className="task-stat review">
-                            <div className="stat-dot"></div>
-                            <span className="stat-name">Under Review</span>
-                            <span className="stat-count">{taskHealth.underReview || 0}</span>
-                        </div>
-                        <div className="task-stat progress">
-                            <div className="stat-dot"></div>
-                            <span className="stat-name">In Progress</span>
-                            <span className="stat-count">{taskHealth.inProgress || 0}</span>
-                        </div>
-                        <div className="task-stat overdue">
-                            <div className="stat-dot"></div>
-                            <span className="stat-name">Overdue</span>
-                            <span className="stat-count">{taskHealth.overdue || 0}</span>
-                        </div>
+                        <div className="task-stat completed"><div className="stat-dot"></div><span className="stat-name">Completed</span><span className="stat-count">{taskHealth.completed || 0}</span></div>
+                        <div className="task-stat review"><div className="stat-dot"></div><span className="stat-name">Under Review</span><span className="stat-count">{taskHealth.underReview || 0}</span></div>
+                        <div className="task-stat progress"><div className="stat-dot"></div><span className="stat-name">In Progress</span><span className="stat-count">{taskHealth.inProgress || 0}</span></div>
+                        <div className="task-stat overdue"><div className="stat-dot"></div><span className="stat-name">Overdue</span><span className="stat-count">{taskHealth.overdue || 0}</span></div>
                     </div>
                     <div className="task-metrics">
-                        <div className="metric-row">
-                            <span>Avg. Completion Time</span>
-                            <strong>{taskHealth.avgCompletionTime || 0} days</strong>
-                        </div>
-                        <div className="metric-row">
-                            <span>On-Time Rate</span>
-                            <strong>{taskHealth.onTimeRate || 0}%</strong>
-                        </div>
+                        <div className="metric-row"><span>Avg. Completion Time</span><strong>{taskHealth.avgCompletionTime || 0} days</strong></div>
+                        <div className="metric-row"><span>On-Time Rate</span><strong>{taskHealth.onTimeRate || 0}%</strong></div>
                     </div>
                 </div>
 
-                {/* 3. Skill Demand vs Supply - Radar Chart */}
+                {/* 3. Skill Demand vs Supply */}
                 <div className="analytics-card skill-radar-card">
                     <div className="card-header">
                         <div>
@@ -273,94 +222,44 @@ const PlatformAnalytics = ({ analytics }) => {
                             <p className="card-subtitle">Market alignment analysis</p>
                         </div>
                         <div className="radar-legend">
-                            <span className="legend-item demand">
-                                <i className="legend-line"></i>Recruiter Demand
-                            </span>
-                            <span className="legend-item supply">
-                                <i className="legend-line"></i>Student Supply
-                            </span>
+                            <span className="legend-item demand"><i className="legend-line"></i>Recruiter Demand</span>
+                            <span className="legend-item supply"><i className="legend-line"></i>Student Supply</span>
                         </div>
                     </div>
                     <div className="radar-chart-container">
                         <svg viewBox="0 0 300 300" className="radar-chart">
-                            {/* Grid circles */}
                             {[20, 40, 60, 80, 100].map((r, i) => (
-                                <circle
-                                    key={i}
-                                    cx="150"
-                                    cy="150"
-                                    r={r}
-                                    fill="none"
-                                    stroke="#e5e7eb"
-                                    strokeWidth="1"
-                                />
+                                <circle key={i} cx="150" cy="150" r={r} fill="none" stroke="#e5e7eb" strokeWidth="1" />
                             ))}
-                            {/* Axis lines */}
                             {(skillDemandSupply.skills || []).map((_, i) => {
                                 const angle = (i * 360) / (skillDemandSupply.skills || []).length - 90;
                                 const rad = (angle * Math.PI) / 180;
-                                const x = 150 + 100 * Math.cos(rad);
-                                const y = 150 + 100 * Math.sin(rad);
-                                return (
-                                    <line
-                                        key={i}
-                                        x1="150"
-                                        y1="150"
-                                        x2={x}
-                                        y2={y}
-                                        stroke="#e5e7eb"
-                                        strokeWidth="1"
-                                    />
-                                );
+                                return <line key={i} x1="150" y1="150" x2={150 + 100 * Math.cos(rad)} y2={150 + 100 * Math.sin(rad)} stroke="#e5e7eb" strokeWidth="1" />;
                             })}
-                            {/* Demand polygon */}
                             {(skillDemandSupply.demand || []).length > 0 && (
                                 <polygon
                                     points={(skillDemandSupply.demand || []).map((val, i) => {
                                         const angle = (i * 360) / (skillDemandSupply.skills || []).length - 90;
                                         const rad = (angle * Math.PI) / 180;
-                                        const x = 150 + (val / 100) * 100 * Math.cos(rad);
-                                        const y = 150 + (val / 100) * 100 * Math.sin(rad);
-                                        return `${x},${y}`;
+                                        return `${150 + (val / 100) * 100 * Math.cos(rad)},${150 + (val / 100) * 100 * Math.sin(rad)}`;
                                     }).join(' ')}
-                                    fill="rgba(239, 68, 68, 0.2)"
-                                    stroke="#ef4444"
-                                    strokeWidth="2"
+                                    fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" strokeWidth="2"
                                 />
                             )}
-                            {/* Supply polygon */}
                             {(skillDemandSupply.supply || []).length > 0 && (
                                 <polygon
                                     points={(skillDemandSupply.supply || []).map((val, i) => {
                                         const angle = (i * 360) / (skillDemandSupply.skills || []).length - 90;
                                         const rad = (angle * Math.PI) / 180;
-                                        const x = 150 + (val / 100) * 100 * Math.cos(rad);
-                                        const y = 150 + (val / 100) * 100 * Math.sin(rad);
-                                        return `${x},${y}`;
+                                        return `${150 + (val / 100) * 100 * Math.cos(rad)},${150 + (val / 100) * 100 * Math.sin(rad)}`;
                                     }).join(' ')}
-                                    fill="rgba(59, 130, 246, 0.2)"
-                                    stroke="#3b82f6"
-                                    strokeWidth="2"
+                                    fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" strokeWidth="2"
                                 />
                             )}
-                            {/* Labels */}
                             {(skillDemandSupply.skills || []).map((skill, i) => {
                                 const angle = (i * 360) / (skillDemandSupply.skills || []).length - 90;
                                 const rad = (angle * Math.PI) / 180;
-                                const x = 150 + 120 * Math.cos(rad);
-                                const y = 150 + 120 * Math.sin(rad);
-                                return (
-                                    <text
-                                        key={i}
-                                        x={x}
-                                        y={y}
-                                        textAnchor="middle"
-                                        fontSize="10"
-                                        fill="#6b7280"
-                                    >
-                                        {skill}
-                                    </text>
-                                );
+                                return <text key={i} x={150 + 120 * Math.cos(rad)} y={150 + 120 * Math.sin(rad)} textAnchor="middle" fontSize="10" fill="#6b7280">{skill}</text>;
                             })}
                         </svg>
                     </div>
@@ -368,14 +267,7 @@ const PlatformAnalytics = ({ analytics }) => {
                         <h4 className="treemap-title">Skill Categories by Volume</h4>
                         <div className="treemap-grid">
                             {(skillDemandSupply.categories || []).map((cat, i) => (
-                                <div
-                                    key={i}
-                                    className="treemap-cell"
-                                    style={{
-                                        flex: cat.value,
-                                        background: `linear-gradient(135deg, ${['#6366f1', '#8b5cf6', '#a855f7', '#c084fc'][i]} 0%, ${['#4f46e5', '#7c3aed', '#9333ea', '#a855f7'][i]} 100%)`
-                                    }}
-                                >
+                                <div key={i} className="treemap-cell" style={{ flex: cat.value, background: `linear-gradient(135deg, ${['#6366f1', '#8b5cf6', '#a855f7', '#c084fc'][i]} 0%, ${['#4f46e5', '#7c3aed', '#9333ea', '#a855f7'][i]} 100%)` }}>
                                     <span className="cell-name">{cat.name}</span>
                                     <span className="cell-value">{cat.value}%</span>
                                     <span className="cell-stipend">₹{(cat.stipend / 1000).toFixed(0)}K avg</span>
@@ -385,7 +277,7 @@ const PlatformAnalytics = ({ analytics }) => {
                     </div>
                 </div>
 
-                {/* 4. Platform Growth - Smooth Area Chart */}
+                {/* 4. Platform Growth */}
                 <div className="analytics-card growth-card">
                     <div className="card-header">
                         <div>
@@ -393,84 +285,34 @@ const PlatformAnalytics = ({ analytics }) => {
                             <p className="card-subtitle">30-day activity trends</p>
                         </div>
                         <div className="growth-legend">
-                            <span className="legend-item postings">
-                                <i className="legend-dot"></i>Job Postings
-                            </span>
-                            <span className="legend-item applications">
-                                <i className="legend-dot"></i>Applications
-                            </span>
-                            <span className="legend-item matches">
-                                <i className="legend-dot"></i>Successful Matches
-                            </span>
+                            <span className="legend-item postings"><i className="legend-dot"></i>Job Postings</span>
+                            <span className="legend-item applications"><i className="legend-dot"></i>Applications</span>
+                            <span className="legend-item matches"><i className="legend-dot"></i>Successful Matches</span>
                         </div>
                     </div>
                     <div className="area-chart-container">
                         <div className="chart-y-axis">
-                            {[300, 200, 100, 0].map(val => (
-                                <span key={val} className="y-tick">{val}</span>
-                            ))}
+                            {[300, 200, 100, 0].map(val => <span key={val} className="y-tick">{val}</span>)}
                         </div>
                         <div className="area-chart">
                             <svg viewBox="0 0 600 200" preserveAspectRatio="none" className="area-svg">
                                 <defs>
                                     <linearGradient id="applicationsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="rgba(59, 130, 246, 0.4)" />
-                                        <stop offset="100%" stopColor="rgba(59, 130, 246, 0.05)" />
+                                        <stop offset="0%" stopColor="rgba(59, 130, 246, 0.4)" /><stop offset="100%" stopColor="rgba(59, 130, 246, 0.05)" />
                                     </linearGradient>
                                     <linearGradient id="postingsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="rgba(139, 92, 246, 0.4)" />
-                                        <stop offset="100%" stopColor="rgba(139, 92, 246, 0.05)" />
+                                        <stop offset="0%" stopColor="rgba(139, 92, 246, 0.4)" /><stop offset="100%" stopColor="rgba(139, 92, 246, 0.05)" />
                                     </linearGradient>
                                     <linearGradient id="matchesGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="rgba(16, 185, 129, 0.4)" />
-                                        <stop offset="100%" stopColor="rgba(16, 185, 129, 0.05)" />
+                                        <stop offset="0%" stopColor="rgba(16, 185, 129, 0.4)" /><stop offset="100%" stopColor="rgba(16, 185, 129, 0.05)" />
                                     </linearGradient>
                                 </defs>
-                                {/* Applications area */}
-                                <path
-                                    d={`M 0 200 ${platformGrowth.map((d, i) =>
-                                        `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.applications / 300) * 200}`
-                                    ).join(' ')} L 600 200 Z`}
-                                    fill="url(#applicationsGrad)"
-                                />
-                                <path
-                                    d={`M ${platformGrowth.map((d, i) =>
-                                        `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.applications / 300) * 200}`
-                                    ).join(' L ')}`}
-                                    fill="none"
-                                    stroke="#3b82f6"
-                                    strokeWidth="2"
-                                />
-                                {/* Postings area */}
-                                <path
-                                    d={`M 0 200 ${platformGrowth.map((d, i) =>
-                                        `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.postings / 300) * 200}`
-                                    ).join(' ')} L 600 200 Z`}
-                                    fill="url(#postingsGrad)"
-                                />
-                                <path
-                                    d={`M ${platformGrowth.map((d, i) =>
-                                        `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.postings / 300) * 200}`
-                                    ).join(' L ')}`}
-                                    fill="none"
-                                    stroke="#8b5cf6"
-                                    strokeWidth="2"
-                                />
-                                {/* Matches area */}
-                                <path
-                                    d={`M 0 200 ${platformGrowth.map((d, i) =>
-                                        `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.matches / 300) * 200}`
-                                    ).join(' ')} L 600 200 Z`}
-                                    fill="url(#matchesGrad)"
-                                />
-                                <path
-                                    d={`M ${platformGrowth.map((d, i) =>
-                                        `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.matches / 300) * 200}`
-                                    ).join(' L ')}`}
-                                    fill="none"
-                                    stroke="#10b981"
-                                    strokeWidth="2"
-                                />
+                                <path d={`M 0 200 ${platformGrowth.map((d, i) => `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.applications / 300) * 200}`).join(' ')} L 600 200 Z`} fill="url(#applicationsGrad)" />
+                                <path d={`M ${platformGrowth.map((d, i) => `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.applications / 300) * 200}`).join(' L ')}`} fill="none" stroke="#3b82f6" strokeWidth="2" />
+                                <path d={`M 0 200 ${platformGrowth.map((d, i) => `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.postings / 300) * 200}`).join(' ')} L 600 200 Z`} fill="url(#postingsGrad)" />
+                                <path d={`M ${platformGrowth.map((d, i) => `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.postings / 300) * 200}`).join(' L ')}`} fill="none" stroke="#8b5cf6" strokeWidth="2" />
+                                <path d={`M 0 200 ${platformGrowth.map((d, i) => `L ${(i / (platformGrowth.length - 1)) * 600} ${200 - (d.matches / 300) * 200}`).join(' ')} L 600 200 Z`} fill="url(#matchesGrad)" />
+                                <path d={`M ${platformGrowth.map((d, i) => `${(i / (platformGrowth.length - 1)) * 600},${200 - (d.matches / 300) * 200}`).join(' L ')}`} fill="none" stroke="#10b981" strokeWidth="2" />
                             </svg>
                             <div className="chart-x-axis">
                                 {platformGrowth.filter((_, i) => i % 5 === 0).map((d, i) => (
@@ -478,70 +320,6 @@ const PlatformAnalytics = ({ analytics }) => {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* 5. Internship vs Freelance Distribution */}
-                <div className="analytics-card distribution-card">
-                    <div className="card-header">
-                        <div>
-                            <h3 className="card-title">Opportunity Distribution</h3>
-                            <p className="card-subtitle">Internship vs Freelance breakdown</p>
-                        </div>
-                    </div>
-                    <div className="distribution-overview">
-                        <div className="dist-item internship">
-                            <div className="dist-icon">💼</div>
-                            <div className="dist-content">
-                                <span className="dist-label">Internships</span>
-                                <span className="dist-value">{opportunityDistribution.internships?.count}</span>
-                                <span className="dist-percentage">{opportunityDistribution.internships?.percentage}%</span>
-                            </div>
-                            <div className="dist-meta">
-                                <span>Avg: ₹{opportunityDistribution.internships?.avgStipend}/mo</span>
-                                <span>{opportunityDistribution.internships?.avgDuration} months</span>
-                            </div>
-                        </div>
-                        <div className="dist-item freelance">
-                            <div className="dist-icon">🎯</div>
-                            <div className="dist-content">
-                                <span className="dist-label">Freelance Tasks</span>
-                                <span className="dist-value">{opportunityDistribution.freelance?.count}</span>
-                                <span className="dist-percentage">{opportunityDistribution.freelance?.percentage}%</span>
-                            </div>
-                            <div className="dist-meta">
-                                <span>Avg: ₹{opportunityDistribution.freelance?.avgPayment}/task</span>
-                                <span>{opportunityDistribution.freelance?.avgDuration} months</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="category-comparison">
-                        <h4 className="comparison-title">By Category</h4>
-                        {opportunityDistribution.byCategory?.map((cat, i) => (
-                            <div key={i} className="comparison-row">
-                                <span className="cat-name">{cat.category}</span>
-                                <div className="cat-bars">
-                                    <div className="cat-bar-group">
-                                        <div
-                                            className="cat-bar internship-bar"
-                                            style={{ width: `${(cat.internship / 145) * 100}%` }}
-                                            title={`${cat.internship} internships`}
-                                        >
-                                            <span className="bar-label">{cat.internship}</span>
-                                        </div>
-                                    </div>
-                                    <div className="cat-bar-group">
-                                        <div
-                                            className="cat-bar freelance-bar"
-                                            style={{ width: `${(cat.freelance / 98) * 100}%` }}
-                                            title={`${cat.freelance} freelance`}
-                                        >
-                                            <span className="bar-label">{cat.freelance}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 </div>
 

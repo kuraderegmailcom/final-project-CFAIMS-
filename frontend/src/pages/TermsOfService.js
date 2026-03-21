@@ -22,7 +22,7 @@ const TermsOfService = () => {
                 <section>
                     <h2>2. Description of Service</h2>
                     <p>
-                        Ethio StudentHub is a platform that connects Ethiopian students with freelance and internship opportunities.
+                        Ethio StudentHub is a platform that connects Ethiopian students with career opportunities.
                         We provide tools for profile creation, job applications, task management, and AI-powered matching services.
                     </p>
                 </section>

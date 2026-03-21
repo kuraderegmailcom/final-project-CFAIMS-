@@ -12,7 +12,6 @@ const opportunitySchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['internship', 'freelance'],
         required: true
     },
     description: {
